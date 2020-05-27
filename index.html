@@ -1,35 +1,44 @@
-<div>
-  <p id="yesterday">Yesterday</p>
-</div>
+<html>
+  <head>
+    <title>What day was yesterday?</title>
+    <meta name="description" content="yesterday's day of the week">
+  </head>
+  
+  <body>
+    <div>
+      <p id="yesterday">Yesterday</p>
+    </div>
+  </body>
+  
+  <script>
+    var colors = ['#9a095a', '#3d1aa6', '007b81', '#37a71e', '#a67010'];
+    var color = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = color;
 
-<script>
-var colors = ['#9a095a', '#3d1aa6', '007b81', '#37a71e', '#a67010'];
-var color = colors[Math.floor(Math.random() * colors.length)];
-document.body.style.backgroundColor = color;
+    var date = new Date();
+    date.setDate(date.getDate() - 1);
+    var day = date.toLocaleString(window.navigator.language, {weekday: 'long'});
+    document.getElementById("yesterday").innerHTML = day;
+  </script>
 
-var date = new Date();
-date.setDate(date.getDate() - 1);
-var day = date.toLocaleString(window.navigator.language, {weekday: 'long'});
-document.getElementById("yesterday").innerHTML = day;
-</script>
+  <style>
+    body {
+      font-family: Helvetica;
+      background: #71018a;
+      margin: 0;
+    }
 
-<style>
-body {
-  font-family: Helvetica;
-  background: #71018a;
-  margin: 0;
-}
+    div {
+      width: 100vw; height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-div {
-  width: 100vw; height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#yesterday {
-  margin: 0;
-  font-size: 20vmin;
-  color: #fff;
-}
-</style>
+    #yesterday {
+      margin: 0;
+      font-size: 20vmin;
+      color: #fff;
+    }
+  </style>
+</html>
